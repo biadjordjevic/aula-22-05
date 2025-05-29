@@ -26,7 +26,16 @@ async function connect() {
 
   connect();
 
-  async function insertCustomers(customer) {
+
+  async function selectCustomer(id) {
+    // Estabelece a conexão com o banco de dados
+    const client = await connect();
+    // Executa a query SQL usando declaração preparada para evitar SQL Injection
+    const res = await client.query("SELECT * FROM client WHERE cpf=$1", [id]);
+    // Retorna as linhas (dados do cliente)
+    return res.rows;
+    }
+  async function insertCustomer(customer) {
     const client = await connect();
     const sql = "INSERT INTO client (cpf, nome, email, idade, profissao) VALUES ($1, $2, $3, $4, $5);";
     const values = [customer.cpf, customer.nome, customer.email, customer.idade, customer.profissao];
@@ -34,4 +43,8 @@ async function connect() {
     await client.query(sql, values);
   }
 
-  module.exports = {insertCustomers}
+  module.exports = {
+
+    insertCustomer,
+    selectCustomer
+  }

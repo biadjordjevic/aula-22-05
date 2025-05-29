@@ -50,13 +50,6 @@ Teste da rota POST:
 - Selecionei POST
 - URL: htpp://localhost:3000/client
 - BODY -> RAW:
-{
-  "cpf": "12345678901",
-  "nome": "João da Silva",
-  "email": "joao.silva@example.com",
-  "idade": 30,
-  "profissao": "Engenheiro"
-}
 
 
 - HEADER -> KEY: Content-Type 
