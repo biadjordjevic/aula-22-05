@@ -14,6 +14,11 @@ app.post("/client", async (req, res) => {
     await db.insertCustomer(req.body);
     res.sendStatus(201);
 })
+// Rota para excluir cliente
+app.delete("/client/:id", async (req, res) => {
+    await db.deleteCustomer(req.params.id)
+    res.sendStatus(204)
+    })
 // Rota para listar um cliente específico
 app.get('/client/:id', async (req, res) => {
     // Captura o parâmetro 'id' presente na URL, que corresponde ao CPF do cliente

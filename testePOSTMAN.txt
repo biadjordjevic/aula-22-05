@@ -48,7 +48,7 @@ Using an empty password field ====>>>> CONNECTION_SCTRING=postgresql://username:
 Teste da rota POST:
 - Usei postman
 - Selecionei POST
-- URL: htpp://localhost:3000/client
+- URL: http://localhost:3000/client
 - BODY -> RAW:
 
 
